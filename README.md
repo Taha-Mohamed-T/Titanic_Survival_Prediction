@@ -1,25 +1,25 @@
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score
+# 🚢 Titanic Survival Prediction
 
-# Load dataset
-url = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv'
-data = pd.read_csv(url)
-data.head()
+## 📌 Overview
+This project uses the famous Titanic dataset to predict whether a passenger survived or not using **Logistic Regression**.
 
-# Preprocessing
-X = data[['Pclass','Sex','Age','SibSp','Parch','Fare']]
-X['Sex'] = X['Sex'].map({'male':0,'female':1})
-X = X.fillna(X.mean())
-y = data['Survived']
+## 🛠 Tools & Libraries
+- Python
+- Pandas
+- NumPy
+- Scikit-learn
+- Matplotlib / Seaborn
 
-X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=42)
+## 📊 Steps
+1. Load and clean the dataset.
+2. Feature engineering (handling missing values, encoding categorical data).
+3. Train Logistic Regression model.
+4. Evaluate accuracy on test data.
 
-model = LogisticRegression(max_iter=200)
-model.fit(X_train,y_train)
-preds = model.predict(X_test)
+## 🎯 Result
+The model achieved an accuracy of around **80%** (depending on parameters).
 
-print('Accuracy:', accuracy_score(y_test,preds))
+## 🔗 Files
+- `Titanic_Survival_Prediction.ipynb` → Main Jupyter Notebook.
+
+---
